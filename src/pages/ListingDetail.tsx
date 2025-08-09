@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useState } from 'react'
 import { useCart } from '@/contexts/CartContext'
 import { SEO } from '@/components/SEO'
+import galleryForest from '@/assets/gallery-forest.jpg'
 
 export default function ListingDetail() {
   const { id } = useParams()
@@ -22,7 +23,7 @@ export default function ListingDetail() {
       <h1 className="text-3xl font-bold mb-4">{listing.title}</h1>
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-4">
-          <div className="h-64 rounded-md bg-primary/10" aria-label="Galeria placeholder" />
+          <img src={listing.images?.[0] || galleryForest} alt={`Imagem de ${listing.title}`} loading="lazy" className="w-full h-64 object-cover rounded-md" />
           <Card>
             <CardHeader><CardTitle className="text-base">Resumo</CardTitle></CardHeader>
             <CardContent className="text-sm text-muted-foreground grid grid-cols-2 gap-2">

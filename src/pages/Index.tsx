@@ -6,6 +6,7 @@ import { SEO } from "@/components/SEO";
 import { db, seedIfEmpty } from "@/data/mock";
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
+import heroForest from "@/assets/hero-forest.jpg";
 
 export default function Index() {
   const [loading, setLoading] = useState(true)
@@ -31,8 +32,8 @@ export default function Index() {
               <Button asChild variant="secondary"><Link to="/auth/register">Anunciar créditos</Link></Button>
             </div>
           </div>
-          <div className="rounded-lg bg-primary/5 border p-8">
-            <div className="h-48 md:h-64 rounded-md bg-primary/10" aria-label="Ilustração placeholder" />
+          <div className="rounded-lg overflow-hidden border">
+            <img src={heroForest} alt="Floresta nativa representando créditos de carbono" loading="lazy" className="w-full h-64 md:h-80 object-cover" />
           </div>
         </div>
       </section>

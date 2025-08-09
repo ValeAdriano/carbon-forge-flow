@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { SEO } from '@/components/SEO'
 import { Link } from 'react-router-dom'
+import listingDefault from '@/assets/listing-default.jpg'
 
 const UF_OPTIONS = ['SP','AM','GO','BA','RS','MT','PA','MG','AC','RO','CE','PR']
 const CERTS = ['VCS','Gold Standard','Outro'] as const
@@ -94,7 +95,7 @@ export default function Marketplace() {
           <Card key={l.id}>
             <CardHeader><CardTitle className="text-base">{l.title}</CardTitle></CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-1">
-              <div className="h-36 rounded-md bg-primary/10" aria-hidden />
+              <img src={l.images?.[0] || listingDefault} alt={`Imagem do projeto ${l.title}`} loading="lazy" className="w-full h-36 object-cover rounded-md" />
               <p>{l.locationCity}/{l.locationUF} · {l.certification}</p>
               <p>{l.tco2.toLocaleString()} tCO₂ · R$ {l.pricePerTCO2}/tCO₂</p>
               <Button asChild size="sm" className="mt-2"><Link to={`/marketplace/${l.id}`}>Ver detalhe</Link></Button>
